@@ -24,7 +24,7 @@ An algorithm is applied to the data to try to determine a relationship between t
 
 The result of the algorithm is a model that encapsulates the calculation derived by the algorithm as a function - let's call it f. In mathematical notation:
 
-$y = \frac(x)$
+$y = F(x)$
 
 y = f(x)
 
