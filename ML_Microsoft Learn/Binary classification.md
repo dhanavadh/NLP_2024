@@ -82,13 +82,12 @@ This visualization is called a confusion matrix, and it shows the prediction tot
 
 The arrangement of the confusion matrix is such that correct (true) predictions are shown in a diagonal line from top-left to bottom-right. Often, color-intensity is used to indicate the number of predictions in each cell, so a quick glance at a model that predicts well should reveal a deeply shaded diagonal trend.
 
->[]
+>[! ตัวอย่างเพื่อความเข้าใจ]
 >าที่คาดการณ์จากโมเดล ซึ่งก่อนอื่นขอพาทุกท่านไปรู้จักองค์ประกอบของตาราง (แสดงในตารางที่ 1) ดังนี้:
-
-- True Negative (TN): คือจำนวนครั้งที่โมเดลทำนายว่าไม่ใช่ และจริงๆแล้วก็ไม่ใช่ เช่น Model ทำนายว่าผู้ชายไม่ได้ท้อง (Negative) ซึ่งผลจริงคือผู้ชายไม่ได้ท้อง (True)
-- False Positive (FP) หรือ Type 1 error: จำนวนครั้งที่โมเดลทำนายว่าเป็น แต่จริงๆแล้วไม่ใช่ เช่น Model ทำนายว่าผู้ชายท้อง (Positive) ซึ่งผลจริงคือผู้ชายไม่ได้ท้อง (False)
-- False Negative (FN) หรือ Type 2 error: จำนวนครั้งที่โมเดลทำนายว่าไม่ใช่ แต่จริงๆแล้วเป็น เช่น ทำนายว่าผู้หญิงไม่ได้ท้อง (Negative) ซึ่งผลจริงคือผู้หญิงท้อง (False)
-- True Positive (TP): จำนวนครั้งที่โมเดลทำนายว่าเป็น และจริงๆแล้วก็เป็น เช่น Model ทำนายว่าผู้หญิงท้อง (Positive) ซึ่งผลจริงคือ ผู้หญิงท้อง (True)
+>- True Negative (TN): คือจำนวนครั้งที่โมเดลทำนายว่าไม่ใช่ และจริงๆแล้วก็ไม่ใช่ เช่น Model ทำนายว่าผู้ชายไม่ได้ท้อง (Negative) ซึ่งผลจริงคือผู้ชายไม่ได้ท้อง (True)
+>- False Positive (FP) หรือ Type 1 error: จำนวนครั้งที่โมเดลทำนายว่าเป็น แต่จริงๆแล้วไม่ใช่ เช่น Model ทำนายว่าผู้ชายท้อง (Positive) ซึ่งผลจริงคือผู้ชายไม่ได้ท้อง (False)
+>- False Negative (FN) หรือ Type 2 error: จำนวนครั้งที่โมเดลทำนายว่าไม่ใช่ แต่จริงๆแล้วเป็น เช่น ทำนายว่าผู้หญิงไม่ได้ท้อง (Negative) ซึ่งผลจริงคือผู้หญิงท้อง (False)
+>- True Positive (TP): จำนวนครั้งที่โมเดลทำนายว่าเป็น และจริงๆแล้วก็เป็น เช่น Model ทำนายว่าผู้หญิงท้อง (Positive) ซึ่งผลจริงคือ ผู้หญิงท้อง (True)
 
 ## Accuracy
 The simplest metric you can calculate from the confusion matrix is accuracy - the proportion of predictions that the model got right. Accuracy is calculated as:
