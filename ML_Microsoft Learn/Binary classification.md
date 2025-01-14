@@ -90,6 +90,7 @@ The arrangement of the confusion matrix is such that correct (true) predictions 
 >- True Positive (TP): จำนวนครั้งที่โมเดลทำนายว่าเป็น และจริงๆแล้วก็เป็น เช่น Model ทำนายว่าผู้หญิงท้อง (Positive) ซึ่งผลจริงคือ ผู้หญิงท้อง (True)
 
 ## Accuracy
+คำนวณว่าโมเดลทำนายถูกกี่เปอร์เซนต์
 The simplest metric you can calculate from the confusion matrix is accuracy - the proportion of predictions that the model got right. Accuracy is calculated as:
 
 ***(TN+TP) ÷ (TN+FN+FP+TP)***
@@ -107,7 +108,7 @@ So for our validation data, the diabetes classification model produced correct p
 Accuracy might initially seem like a good metric to evaluate a model, but consider this. Suppose 11% of the population has diabetes. You could create a model that always predicts 0, and it would achieve an accuracy of 89%, even though it makes no real attempt to differentiate between patients by evaluating their features. What we really need is a deeper understanding of how the model performs at predicting 1 for positive cases and 0 for negative cases.
 
 ## Recall
-
+คำนวณความแม่นยำของเหตุการณ์บวกที่เกิดขึ้นจริง
 Recall is a metric that measures the proportion of positive cases that the model identified correctly. In other words, compared to the number of patients who have diabetes, how many did the model predict to have diabetes?
 
 The formula for recall is:
@@ -125,7 +126,7 @@ For our diabetes example:
 So our model correctly identified 75% of patients who have diabetes as having diabetes.
 
 ## Precision
-
+คำนวณความแม่นยำของเหตุการ์บวกที่เกิดขึ้นจริง
 Precision is a similar metric to recall, but measures the proportion of predicted positive cases where the true label is actually positive. In other words, what proportion of the patients predicted by the model to have diabetes actually have diabetes?
 
 The formula for precision is:
@@ -143,7 +144,7 @@ For our diabetes example:
 So 100% of the patients predicted by our model to have diabetes do in fact have diabetes.
 
 ## F1-score
-
+คำนวณประสิทธิภาพโดยรวมของโฒเดลทั้งความแม่นยำและครอบคลุมในการจำแนกเหตุการณ์บวก
 F1-score is an overall metric that combined recall and precision. The formula for F1-score is:
 
 ***(2 x Precision x Recall) ÷ (Precision + Recall)***
@@ -156,3 +157,13 @@ For our diabetes example:
 
 = 0.86
 
+## Area Under the Curve (AUC)
+Another name for recall is the true positive rate (TPR), and there's an equivalent metric called the false positive rate (FPR) that is calculated as FP÷(FP+TN). We already know that the TPR for our model when using a threshold of 0.5 is 0.75, and we can use the formula for FPR to calculate a value of 0÷2 = 0.
+
+Of course, if we were to change the threshold above which the model predicts true (1), it would affect the number of positive and negative predictions; and therefore change the TPR and FPR metrics. These metrics are often used to evaluate a model by plotting a received operator characteristic (ROC) curve that compares the TPR and FPR for every possible threshold value between 0.0 and 1.0:
+
+![alt text](image-10.png)
+
+The ROC curve for a perfect model would go straight up the TPR axis on the left and then across the FPR axis at the top. Since the plot area for the curve measures 1x1, the area under this perfect curve would be 1.0 (meaning that the model is correct 100% of the time). In contrast, a diagonal line from the bottom-left to the top-right represents the results that would be achieved by randomly guessing a binary label; producing an area under the curve of 0.5. In other words, given two possible class labels, you could reasonably expect to guess correctly 50% of the time.
+
+In the case of our diabetes model, the curve above is produced, and the area under the curve (AUC) metric is 0.875. Since the AUC is higher than 0.5, we can conclude the model performs better at predicting whether or not a patient has diabetes than randomly guessing.
