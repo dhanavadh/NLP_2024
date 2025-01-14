@@ -26,5 +26,5 @@ There are many algorithms that can be used for binary classification, such as lo
 ![alt text](image-6.png)
 
 
->[Note]
-[Despite its name, in machine learning logistic regression is used for classification, not regression. The important point is the logistic nature of the function it produces, which describes an S-shaped curve between a lower and upper value (0.0 and 1.0 when used for binary classification).]
+>[!Note]
+Despite its name, in machine learning logistic regression is used for classification, not regression. The important point is the logistic nature of the function it produces, which describes an S-shaped curve between a lower and upper value (0.0 and 1.0 when used for binary classification).
