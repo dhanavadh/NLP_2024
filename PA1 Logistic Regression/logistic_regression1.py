@@ -12,8 +12,10 @@ class TextClassifier:
     def compute_probability(self, thai_text_string):
         tokenized_texts = pythainlp.tokenize.word_tokenize(thai_text_string)
         labels = self.get_all_possible_labels()
+        scores = {}
         
-        scores = {label: 0.0 for label in labels}
+        for label in labels:
+            scores[label] = 0.0
         
         for tokenized_text in tokenized_texts:
             if tokenized_text in self.model_params.index:
@@ -61,11 +63,11 @@ class TextClassifier:
     #     model = TextClassifier(model_file_name)
 
 
-# csv_file_name = "toy_model.csv"
+csv_file_name = "toy_model2.csv"
 
-# text = "ฉันเกลียดฝุ่น"
-# model = TextClassifier(csv_file_name)
-# print(model.get_all_possible_features())
-# print(model.get_all_possible_labels())
-# print(model.compute_probability(text))
-# print(model.classify(text))
+text = "ฉันห่วย"
+model = TextClassifier(csv_file_name)
+print(model.get_all_possible_features())
+print(model.get_all_possible_labels())
+print(model.compute_probability(text))
+print(model.classify(text))
