@@ -61,11 +61,11 @@ class TextClassifier:
     #     model = TextClassifier(model_file_name)
 
 
-csv_file_name = "toy_model.csv"
+# csv_file_name = "toy_model.csv"
 
-text = "ฉันเกลียดฝุ่น"
-model = TextClassifier(csv_file_name)
-print(model.get_all_possible_features())
-print(model.get_all_possible_labels())
-print(model.compute_probability(text))
-print(model.classify(text))
+# text = "ฉันเกลียดฝุ่น"
+# model = TextClassifier(csv_file_name)
+# print(model.get_all_possible_features())
+# print(model.get_all_possible_labels())
+# print(model.compute_probability(text))
+# print(model.classify(text))
